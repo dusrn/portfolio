@@ -1,0 +1,80 @@
+
+.tab-wrap {
+	width:750px;
+	position:absolute;
+	top:100px;
+	right:0;
+
+}
+
+.tab-container {
+	height:50px;
+}
+.tab-container ul.tab-menu {
+	height:50px;
+	list-style:none;
+}
+
+.tab-container ul.tab-menu li.tab-item {
+
+	background:url("./images/tab_shadow.gif") no-repeat 50% 100%;
+	height:41px;
+
+
+	float:left;
+	min-width:81px;
+	margin-right:2px;
+
+}
+
+
+.tab-container ul.tab-menu li.tab-item a {
+	display:block;
+	position:relative;
+	min-width:76px;
+	height:30px;
+	text-align:center;
+	padding-right:5px;
+	background:url("./images/tab_off.gif") no-repeat 100% 0%;
+	color:#000;
+}
+
+
+
+.tab-container ul.tab-menu li.tab-item span {
+	display:block;
+	position:relative;
+	min-width:51px;
+	height:21px;
+	padding:9px 10px 0 15px;
+
+	background:url("./images/tab_off.gif") no-repeat ;
+
+}
+
+.tab-container ul.tab-menu li.tab-item.select {
+
+}
+.tab-container ul.tab-menu li.tab-item.select a{
+	background:url("./images/tab_on.gif") no-repeat 100% 0%;
+	color:#fff;
+}
+
+.tab-container ul.tab-menu li.tab-item.select span{
+	background:url("./images/tab_on.gif") no-repeat;
+
+}
+
+
+.content-list div.content {
+	margin-bottom:100px;
+}
+
+
+.tab-container ul.tab-menu.fixed {
+	position:fixed;
+	top:0;
+}
+
+
+

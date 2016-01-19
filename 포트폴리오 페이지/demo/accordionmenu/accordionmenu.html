@@ -1,0 +1,429 @@
+<!--
+To change this template use Tools | Templates.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body style="border: 1px solid #ffffff;">
+    <script>
+        $(document).ready(function() {
+            
+            // initialize
+            var current = $(".outer_li");
+            var current_content = $(".content");
+            var content_list = new Array();
+            var current_position = 0;
+            
+            content_list.push(current_content);
+            
+            // image preload function
+            $.fn.preload = function() {
+                this.each(function(){
+                $('<img/>')[0].src = this;
+                });
+            }
+            
+            // image preloading
+            $(['./images/back_0.jpg',
+               './images/back_1.jpg',
+               './images/back_2.jpg',
+               './images/front_0.jpg',
+               './images/front_1.jpg',
+               './images/front_2.jpg',
+               './images/black_triangle.jpg',
+               './images/blue_arrow.jpg',
+               './images/blue_triangle.jpg',
+               './images/bookmark.jpg',
+               './images/computer.jpg',
+               './images/document.jpg',
+               './images/download.jpg',
+               './images/folder.jpg',
+               './images/library.jpg',
+               './images/local_disk.jpg',
+               './images/local_network.jpg',
+               './images/main_screen.jpg',
+               './images/music.jpg',
+               './images/my_document.jpg',
+               './images/my_music.jpg',
+               './images/my_photo.jpg',
+               './images/my_video.jpg',
+               './images/network.jpg',
+               './images/photo.jpg',
+               './images/recent_position.jpg',
+               './images/video.jpg',
+               './images/white_arrow.jpg']).preload();
+            
+            // open & close function
+            $(".node").click(function() {
+                var content = $(this).parent().next("ul");
+                var display = $(content).css("display");
+                var current_node = $(this).children("div");
+                if (display == 'none') {
+                    $(content).slideDown(100);
+                    $(current_node).removeClass("blue_triangle").addClass("blue_arrow");
+                }
+                else {
+                    $(content).slideUp(100);
+                    $(current_node).removeClass("blue_arrow").addClass("blue_triangle");
+                }
+            });
+            
+            // mouseover function
+            $(".node").mouseover(function() {
+                var current_node = $(this).children("div");
+                if ($(current_node).attr("class") == "black_triangle") {
+                    $(current_node).removeClass("black_triangle").addClass("blue_triangle");
+                }
+                else if ($(current_node).attr("class") == "white_arrow") {
+                    $(current_node).removeClass("white_arrow").addClass("blue_arrow");
+                }
+            });
+            
+            // mouseout function
+            $(".node").mouseout(function() {
+                var current_node = $(this).children("div");
+                if ($(current_node).attr("class") == "blue_triangle") {
+                    $(current_node).removeClass("blue_triangle").addClass("black_triangle");
+                }
+                else if ($(current_node).attr("class") == "blue_arrow") {
+                    $(current_node).removeClass("blue_arrow").addClass("white_arrow");
+                }
+            });
+            
+            // current select function
+            $("li").click(function() {
+                current.css("border", "1px solid #ffffff");
+                current = $(this);
+                current.css("border", "1px solid #afc8ff");
+                
+                current_content.css("display", "none");
+                current_content = $("." + this.id);
+                current_content.css("display", "block");
+                current_position++;
+                content_list.push(current_content); // insert item
+                if (content_list.length > 1) {
+                    $(".back_0").removeClass("back_0").addClass("back_1");
+                }
+            });
+            
+            // div mousedown
+            $(".back").mousedown(function() {
+                $(".back_1").removeClass("back_1").addClass("back_2");
+            });
+            
+            // div mousedown
+            $(".front").mousedown(function() {
+                $(".front_1").removeClass("front_1").addClass("front_2");
+            });
+            
+            // div mouseup
+            $(".back").mouseup(function() {
+                $(".back_2").removeClass("back_2").addClass("back_1");
+            });
+            
+            // div mouseup
+            $(".front").mouseup(function() {
+                $(".front_2").removeClass("front_2").addClass("front_1");
+            });
+            
+            // move back page
+            $(".back").click(function() {
+                if (content_list.length > 1 && current_position > 0) {
+                    current_content.css("display", "none");
+                    current_position--;
+                    current_content = content_list[current_position];
+                    current_content.css("display", "block");
+                    $(".front_0").removeClass("front_0").addClass("front_1");
+                    if (current_position == 0) {
+                        $(".back_1").removeClass("back_1").addClass("back_0");
+                    }
+                }
+                else {
+                    $(".back_1").removeClass("back_1").addClass("back_0");
+                }
+            });
+            
+            // move front page
+            $(".front").click(function() {
+                if (content_list.length - 1 != current_position) {
+                    current_content.css("display", "none");
+                    current_position++;
+                    current_content = content_list[current_position];
+                    current_content.css("display", "block");
+                    $(".back_0").removeClass("back_0").addClass("back_1");
+                    if (content_list.length - 1 == current_position) {
+                        $(".front_1").removeClass("front_1").addClass("front_0");
+                    }
+                }
+                else {
+                    $(".front_1").removeClass("front_1").addClass("front_0");
+                }
+            });
+        });
+    </script>
+    <div class="wrap">
+        <div class="header">
+            <div class="back">
+                <div class="back_0"></div>
+            </div>
+            <div class="front">
+                <div class="front_0"></div>
+            </div>
+        </div>
+        <div class="accordion">
+            <ul>
+                <li class="outer_li" id="content_1" style="margin: 0;">
+                    <div class="node">
+                        <div class="black_triangle"></div>
+                    </div>
+                    <div class="icon" style="background: url(./images/bookmark.jpg); background-repeat: no-repeat;"></div>
+                    <span class="item">즐겨찾기</span>
+                </li>
+                <ul class="inner_li">
+                    <li id="content_1_1">
+                        <div class="node"></div>
+                        <div class="icon" style="background: url(./images/download.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">다운로드</span>
+                    </li>
+                    <li id="content_1_2">
+                        <div class="node"></div>
+                        <div class="icon" style="background: url(./images/main_screen.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">바탕 화면</span>
+                    </li>
+                    <li id="content_1_3">
+                        <div class="node"></div>
+                        <div class="icon" style="background: url(./images/recent_position.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">최근 위치</span>
+                    </li>
+                </ul>
+                <li class="outer_li" id="content_2">
+                    <div class="node">
+                        <div class="black_triangle"></div>
+                    </div>
+                    <div class="icon" style="background: url(./images/library.jpg); background-repeat: no-repeat;"></div>
+                    <span class="item">라이브러리</span>
+                </li>
+                <ul class="inner_li">
+                    <li class="outer_li" id="content_2_1">
+                        <div class="node">
+                            <div class="black_triangle"></div>
+                        </div>
+                        <div class="icon" style="background: url(./images/document.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">문서</span>
+                    </li>
+                    <ul class="inner_li">
+                        <li id="content_2_1_1">
+                            <div class="node"></div>
+                            <div class="icon" style="background: url(./images/my_document.jpg); background-repeat: no-repeat;"></div>
+                            <span class="item">내 문서</span>
+                        </li>
+                        <li id="content_2_1_2">
+                            <div class="node"></div>
+                            <div class="icon" style="background: url(./images/folder.jpg); background-repeat: no-repeat;"></div>
+                            <span class="item">공용 문서</span>
+                        </li>
+                    </ul>
+                    <li class="outer_li" id="content_2_2">
+                        <div class="node">
+                            <div class="black_triangle"></div>
+                        </div>
+                        <div class="icon" style="background: url(./images/video.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">비디오</span>
+                    </li>
+                    <ul class="inner_li">
+                        <li id="content_2_2_1">
+                            <div class="node"></div>
+                            <div class="icon" style="background: url(./images/my_video.jpg); background-repeat: no-repeat;"></div>
+                            <span class="item">내 비디오</span>
+                        </li>
+                        <li id="content_2_2_2">
+                            <div class="node"></div>
+                            <div class="icon" style="background: url(./images/folder.jpg); background-repeat: no-repeat;"></div>
+                            <span class="item">공용 비디오</span>
+                        </li>
+                    </ul>
+                    <li class="outer_li" id="content_2_3">
+                        <div class="node">
+                            <div class="black_triangle"></div>
+                        </div>
+                        <div class="icon" style="background: url(./images/photo.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">사진</span>
+                    </li>
+                    <ul class="inner_li">
+                        <li id="content_2_3_1">
+                            <div class="node"></div>
+                            <div class="icon" style="background: url(./images/my_photo.jpg); background-repeat: no-repeat;"></div>
+                            <span class="item">내 사진</span>
+                        </li>
+                        <li id="content_2_3_2">
+                            <div class="node"></div>
+                            <div class="icon" style="background: url(./images/folder.jpg); background-repeat: no-repeat;"></div>
+                            <span class="item">공용 사진</span>
+                        </li>
+                    </ul>
+                    <li class="outer_li" id="content_2_4">
+                        <div class="node">
+                            <div class="black_triangle"></div>
+                        </div>
+                        <div class="icon" style="background: url(./images/music.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">음악</span>
+                    </li>
+                    <ul class="inner_li">
+                        <li id="content_2_4_1">
+                            <div class="node"></div>
+                            <div class="icon" style="background: url(./images/my_music.jpg); background-repeat: no-repeat;"></div>
+                            <span class="item">내 음악</span>
+                        </li>
+                        <li id="content_2_4_2">
+                            <div class="node"></div>
+                            <div class="icon" style="background: url(./images/folder.jpg); background-repeat: no-repeat;"></div>
+                            <span class="item">공용 음악</span>
+                        </li>
+                    </ul>
+                </ul>
+                <li class="outer_li" id="content_3">
+                    <div class="node">
+                        <div class="black_triangle"></div>
+                    </div>
+                    <div class="icon" style="background: url(./images/computer.jpg); background-repeat: no-repeat;"></div>
+                    <span class="item">컴퓨터</span>
+                </li>
+                <ul class="inner_li">
+                    <li id="content_3_1">
+                        <div class="node"></div>
+                        <div class="icon" style="background: url(./images/local_disk.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">로컬 디스크 (C:)</span>
+                    </li>
+                </ul>
+                <li class="outer_li" id="content_4">
+                    <div class="node"></div>
+                    <div class="icon" style="background: url(./images/network.jpg); background-repeat: no-repeat;"></div>
+                    <span class="item">네트워크</span>
+                </li>
+            </ul>
+        </div>
+        <div class="contents">
+            <div class="content" style="display: block;"><span class="page">Empty page</span></div>
+            <div class="content_1">
+                <span class="page">즐겨찾기 page</span>
+                <ul class="inner_li">
+                    <li id="content_1_1">
+                        <div class="icon" style="background: url(./images/download.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">다운로드</span>
+                    </li>
+                    <li id="content_1_2">
+                        <div class="icon" style="background: url(./images/main_screen.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">바탕 화면</span>
+                    </li>
+                    <li id="content_1_3">
+                        <div class="icon" style="background: url(./images/recent_position.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">최근 위치</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="content_1_1"><span class="page">다운로드 page</span></div>
+            <div class="content_1_2"><span class="page">바탕 화면 page</span></div>
+            <div class="content_1_3"><span class="page">최근 위치 page</span></div>
+            <div class="content_2">
+                <span class="page">라이브러리 page</span>
+                <ul class="inner_li">
+                    <li class="outer_li" id="content_2_1">
+                        <div class="icon" style="background: url(./images/document.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">문서</span>
+                    </li>
+                    <li class="outer_li" id="content_2_2">
+                        <div class="icon" style="background: url(./images/video.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">비디오</span>
+                    </li>
+                    <li class="outer_li" id="content_2_3">
+                        <div class="icon" style="background: url(./images/photo.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">사진</span>
+                    </li>
+                    <li class="outer_li" id="content_2_4">
+                        <div class="icon" style="background: url(./images/music.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">음악</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="content_2_1">
+                <span class="page">문서 page</span>
+                <ul class="inner_li">
+                    <li id="content_2_1_1">
+                        <div class="icon" style="background: url(./images/my_document.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">내 문서</span>
+                    </li>
+                    <li id="content_2_1_2">
+                        <div class="icon" style="background: url(./images/folder.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">공용 문서</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="content_2_1_1"><span class="page">내 문서 page</span></div>
+            <div class="content_2_1_2"><span class="page">공용 문서 page</span></div>
+            <div class="content_2_2">
+                <span class="page">비디오 page</span>
+                <ul class="inner_li">
+                    <li id="content_2_2_1">
+                        <div class="icon" style="background: url(./images/my_video.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">내 비디오</span>
+                    </li>
+                    <li id="content_2_2_2">
+                        <div class="icon" style="background: url(./images/folder.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">공용 비디오</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="content_2_2_1"><span class="page">내 비디오 page</span></div>
+            <div class="content_2_2_2"><span class="page">공용 비디오 page</span></div>
+            <div class="content_2_3">
+                <span class="page">사진 page</span>
+                <ul class="inner_li">
+                    <li id="content_2_3_1">
+                        <div class="icon" style="background: url(./images/my_photo.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">내 사진</span>
+                    </li>
+                    <li id="content_2_3_2">
+                        <div class="icon" style="background: url(./images/folder.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">공용 사진</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="content_2_3_1"><span class="page">내 사진 page</span></div>
+            <div class="content_2_3_2"><span class="page">공용 사진 page</span></div>
+            <div class="content_2_4">
+                <span class="page">음악 page</span>
+                <ul class="inner_li">
+                    <li id="content_2_4_1">
+                        <div class="icon" style="background: url(./images/my_music.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">내 음악</span>
+                    </li>
+                    <li id="content_2_4_2">
+                        <div class="icon" style="background: url(./images/folder.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">공용 음악</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="content_2_4_1"><span class="page">내 음악 page</span></div>
+            <div class="content_2_4_2"><span class="page">공용 음악 page</span></div>
+            <div class="content_3">
+                <span class="page">컴퓨터 page</span>
+                <ul class="inner_li">
+                    <li id="content_3_1">
+                        <div class="icon" style="background: url(./images/local_disk.jpg); background-repeat: no-repeat;"></div>
+                        <span class="item">로컬 디스크 (C:)</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="content_3_1"><span class="page">로컬 디스크 page</span></div>
+            <div class="content_4"><span class="page">네트워크 page</span></div>
+        </div>
+    </div>
+</body>
+</html>

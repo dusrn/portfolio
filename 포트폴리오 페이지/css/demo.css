@@ -1,0 +1,133 @@
+#demotab_wrap {
+  position: relative;
+  top: 33%;
+  z-index: 11;
+  left: 50%;
+  width: 550px;
+  margin-left: -275px;
+}
+
+#demotab_menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.demotab_item {
+  display: inline-block;
+  list-style: none;
+  padding: 2px;
+  margin: 2px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
+  width: 150px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background: url(../image/tab_off.gif) no-repeat center center;
+  background-size: cover;
+}
+
+.tab_select {
+  background-image: url(../image/tab_on.gif) !important;
+}
+
+.tab_select a div {
+  color: #fff;
+}
+
+.demotab_item a {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.demotab_item a div {
+  color: #111;
+}
+
+#democontent_wrap {
+  position: relative;
+  top: calc(33% + 10px);
+  left: 50%;
+  width: 1000px;
+  height: 500px;
+  margin-left: -500px;
+  overflow: hidden;
+}
+
+.democontent {
+  position: absolute;
+  display: none;
+  width: 1000px;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.content_select {
+  display: block !important;
+}
+
+#pagecopy {
+  background-image: url(../demo/pagycopy.png);
+}
+
+.democontent video {
+  min-width: 100%;
+  min-height: 100%;
+  width: 1000px;
+  height: 500px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#opendemo {
+  width: 250px;
+  bottom: 0;
+  left: 50%;
+  margin-bottom: 10px;
+  margin-left: -125px;
+  position: absolute;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #39528D;
+  background-color: white;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .5);
+  cursor: pointer;
+}
+
+#mainwrap.focus2 #opendemo {
+  -o-transition: opacity .7s;
+  -ms-transition: opacity .7s;
+  -moz-transition: opacity .7s;
+  -webkit-transition: opacity .7s;
+  transition: opacity .7s;
+}
+
+#opendemo:hover {
+  background-color: #39528D;
+}
+
+#opendemo:hover p {
+  color: #fff;
+}
+
+#opendemo p {
+  color: #333;
+  margin: 4px 0;
+  font-weight: bold;
+
+  -o-transition: color .5s;
+  -ms-transition: color .5s;
+  -moz-transition: color .5s;
+  -webkit-transition: color .5s;
+  transition: color .5s;
+
+  -o-animation: resume_download 2s infinite ease;
+  -ms-animation: resume_download 2s infinite ease;
+  -moz-animation: resume_download 2s infinite ease;
+  -webkit-animation: resume_download 2s infinite ease;
+  animation: resume_download 2s infinite ease;
+}

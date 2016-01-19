@@ -1,0 +1,572 @@
+/*
+    Document   : main.css
+    Created on : 2015-07-06 01:36 PM
+    Author     : black9820
+    Description:
+    Purpose of the stylesheet follows.
+    To change this template use Tools | Templates.
+*/
+
+.gnbSub {
+    display: none;
+}
+
+root {
+    display: block;
+}
+
+div {
+    display: block;
+}
+
+ul, ol, dl {
+    list-style: none;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textarea, button, select {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font size: 1em;
+    font-family: dotum,'돋움',gulim,'굴림',Arial,applegothic;
+    line-height: 150%;
+    color: #555;
+    font-size: 0.8em;
+    background: url(./images/top_bg.jpg) 0 0 repeat-x;
+}
+
+a:link, a:visited {
+    color: #555;
+    text-decoration: none;
+}
+
+img, fieldset {
+    border: 0;
+    vertical-align: middle;
+}
+
+#wrap {
+    width: 980px;
+    margin: 0 auto;
+}
+
+#headerwrap {
+    margin: 0 auto;
+    width: 980px;
+    height: 143px;
+}
+
+#header {
+    width: 980px;
+    float: left;
+    padding-right: 0px;
+    position: relative;
+}
+
+#header .skipwrap {
+    float: right;
+    text-align: right;
+}
+
+#header .headerTop {
+    float: left;
+    height: 143px;
+    width: 980px;
+    margin: 0;
+    position: relative;
+}
+
+#header .headerTop .spot {
+    float: left;
+    padding: 0;
+    width: 100%;
+    height: 51px;
+}
+
+#header .headerTop .spot ul.txzoom {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+#header .headerTop .spot ul.txzoom li {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+#header .headerTop h1 {
+    float: left;
+    width: 234px;
+}
+
+.hidden, legend, caption {
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    visibility: hidden;
+    width: 0;
+}
+
+div#gnbMenu {
+    float: right;
+    width: 746px;
+    height: 92px;
+    padding: 0;
+    position: relative;
+}
+
+div#gnbMenu ul.gnb {
+    display: inline-block;
+}
+
+div#gnbMenu ul.gnb li.gnbMenu2 {
+    float: left;
+    padding: 0 0;
+    display: block;
+    z-index: 1;
+}
+
+div#gnbMenu ul.gnb div.gnbSub {
+    clear: both;
+    position: absolute;
+    top: 55px;
+    padding: 0;
+    margin: 0;
+    height: 25px;
+}
+
+.gnb:hover:after {
+    display: block;
+}
+
+div#gnbSub1 {
+    left: -10px;
+    width: 650px;
+}
+
+div#gnbSub2 {
+    left: 75px;
+    width: 600px;
+}
+
+div#gnbSub3 {
+    left: 140px;
+    width: 600px;
+}
+
+div#gnbSub4 {
+    left: 200px;
+    width: 600px;
+}
+
+div#gnbSub5 {
+    left: 360px;
+    width: 450px;
+}
+
+div#gnbSub6 {
+    left: 220px;
+    width: 600px;
+}
+
+div#gnbMenu ul.gnb div.gnbSub ul {
+    padding: 6px 0 8px 0;
+    display: inline-block;
+    line-height: 100%;
+}
+
+div#gnbMenu ul.gnb div.gnbSub ul li {
+    float: left;
+    padding: 0 8px;
+}
+
+div#gnbMenu ul.gnb div.gnbSub ul li a {
+    display: inline-block;
+}
+
+div#gnbMenu .gnb1 {
+    background: url(./images/gnb1_off.gif);
+    width: 106px;
+    height: 55px;
+}
+
+div#gnbMenu .gnb1:hover {
+    background: url(./images/gnb1_on.gif);
+}
+
+div#gnbMenu .gnb1_1 {
+    background: url(/images/gnb1_1_off.gif);
+    width: 23px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb1_1:hover {
+    background: url(./images/gnb1_1_on.gif);
+}
+
+div#gnbMenu .gnb1_2 {
+    background: url(./images/gnb1_2_off.gif);
+    width: 111px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb1_2:hover {
+    background: url(./images/gnb1_2_on.gif);
+}
+
+div#gnbMenu .gnb1_3 {
+    background: url(./images/gnb1_3_off.gif);
+    width: 64px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb1_3:hover {
+    background: url(./images/gnb1_3_on.gif);
+}
+
+div#gnbMenu .gnb1_4 {
+    background: url(./images/gnb1_4_off.gif);
+    width: 85px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb1_4:hover {
+    background: url(./images/gnb1_4_on.gif);
+}
+
+div#gnbMenu .gnb1_5 {
+    background: url(./images/gnb1_5_off.gif);
+    width: 111px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb1_5:hover {
+    background: url(./images/gnb1_5_on.gif);
+}
+
+div#gnbMenu .gnb1_6 {
+    background: url(./images/gnb1_6_off.gif);
+    width: 73px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb1_6:hover {
+    background: url(./images/gnb1_6_on.gif);
+}
+
+
+div#gnbMenu .gnb2 {
+    background: url(./images/gnb2_off.gif);
+    width: 130px;
+    height: 55px;
+}
+
+div#gnbMenu .gnb2:hover {
+    background: url(./images/gnb2_on.gif);
+}
+
+div#gnbMenu .gnb2_1 {
+    background: url(/images/gnb2_1_off.gif);
+    width: 72px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb2_1:hover {
+    background: url(./images/gnb2_1_on.gif);
+}
+
+div#gnbMenu .gnb2_3 {
+    background: url(./images/gnb2_3_off.gif);
+    width: 72px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb2_3:hover {
+    background: url(./images/gnb2_3_on.gif);
+}
+
+div#gnbMenu .gnb3 {
+    background: url(./images/gnb3_off.gif);
+    width: 131px;
+    height: 55px;
+}
+
+div#gnbMenu .gnb3:hover {
+    background: url(./images/gnb3_on.gif);
+}
+
+div#gnbMenu .gnb3_1 {
+    background: url(/images/gnb3_1_off.gif);
+    width: 141px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb3_1:hover {
+    background: url(./images/gnb3_1_on.gif);
+}
+
+div#gnbMenu .gnb3_3 {
+    background: url(./images/gnb3_3_off.gif);
+    width: 146px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb3_3:hover {
+    background: url(./images/gnb3_3_on.gif);
+}
+
+div#gnbMenu .gnb3_4 {
+    background: url(./images/gnb3_4_off.gif);
+    width: 168px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb3_4:hover {
+    background: url(./images/gnb3_4_on.gif);
+}
+
+div#gnbMenu .gnb4 {
+    background: url(./images/gnb4_off.gif);
+    width: 102px;
+    height: 55px;
+}
+
+div#gnbMenu .gnb4:hover {
+    background: url(./images/gnb4_on.gif);
+}
+
+div#gnbMenu .gnb4_1 {
+    background: url(/images/gnb4_1_off.gif);
+    width: 48px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb4_1:hover {
+    background: url(./images/gnb4_1_on.gif);
+}
+
+div#gnbMenu .gnb4_2 {
+    background: url(./images/gnb4_2_off.gif);
+    width: 48px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb4_2:hover {
+    background: url(./images/gnb4_2_on.gif);
+}
+
+div#gnbMenu .gnb4_3 {
+    background: url(./images/gnb4_3_off.gif);
+    width: 188px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb4_3:hover {
+    background: url(./images/gnb4_3_on.gif);
+}
+
+div#gnbMenu .gnb4_4 {
+    background: url(./images/gnb4_4_off.gif);
+    width: 74px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb4_4:hover {
+    background: url(./images/gnb4_4_on.gif);
+}
+
+div#gnbMenu .gnb5 {
+    background: url(./images/gnb5_off.gif);
+    width: 137px;
+    height: 55px;
+}
+
+div#gnbMenu .gnb5:hover {
+    background: url(./images/gnb5_on.gif);
+}
+
+div#gnbMenu .gnb5_1 {
+    background: url(/images/gnb5_1_off.gif);
+    width: 84px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb5_1:hover {
+    background: url(./images/gnb5_1_on.gif);
+}
+
+div#gnbMenu .gnb5_2 {
+    background: url(./images/gnb5_2_off.gif);
+    width: 146px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb5_2:hover {
+    background: url(./images/gnb5_2_on.gif);
+}
+
+div#gnbMenu .gnb5_3 {
+    background: url(./images/gnb5_3_off.gif);
+    width: 85px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb5_3:hover {
+    background: url(./images/gnb5_3_on.gif);
+}
+
+div#gnbMenu .gnb6 {
+    background: url(./images/gnb6_off.gif);
+    width: 139px;
+    height: 55px;
+}
+
+div#gnbMenu .gnb6:hover {
+    background: url(./images/gnb6_on.gif);
+}
+
+div#gnbMenu .gnb6_1 {
+    background: url(/images/gnb6_1_off.gif);
+    width: 86px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb6_1:hover {
+    background: url(./images/gnb6_1_on.gif);
+}
+
+div#gnbMenu .gnb6_2 {
+    background: url(./images/gnb6_2_off.gif);
+    width: 110px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb6_2:hover {
+    background: url(./images/gnb6_2_on.gif);
+}
+
+div#gnbMenu .gnb6_3 {
+    background: url(./images/gnb6_3_off.gif);
+    width: 207px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb6_3:hover {
+    background: url(./images/gnb6_3_on.gif);
+}
+
+div#gnbMenu .gnb6_4 {
+    background: url(./images/gnb6_4_off.gif);
+    width: 33px;
+    height: 25px;
+}
+
+div#gnbMenu .gnb6_4:hover {
+    background: url(./images/gnb6_4_on.gif);
+}
+
+#contWrap {
+    width: 980px;
+    margin: 0 auto;
+}
+
+#contents {
+    float: left;
+    width: 980px;
+    position: relative;
+}
+
+#contents .day {
+    position: absolute;
+    top: 48px;
+    left: 212px;
+    color: #fff;
+    font-size: 12px;
+}
+
+#contents .main {
+    position: absolute;
+    top: 78px;
+    left: 88px;
+    color: #fff;
+    font-size: 14px;
+    display: inline-block;
+    line-height: 17px;
+    width: 200px;
+}
+
+#contents .main a {
+    color: #fff;
+    display: inline-block;
+    width: 250px;
+}
+
+.news {
+    float: left;
+    width: 580px;
+    border: 1px solid #dfdfdf;
+    padding: 14px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.news ul.list {
+    position: absolute;
+    top: 30px;
+    left: 169px;
+    width: 420px;
+}
+
+.news ul.list li {
+    background: url(./images/ic_dot.gif) 0 9px no-repeat;
+    line-height: 190%;
+    padding-left: 15px;
+    font-size: 14px;
+}
+
+.news .more {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.bann {
+    float: left;
+    width: 350px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.bann li {
+    float: left;
+    width: 170px;
+}
+
+#footerwrap {
+    clear: both;
+    height: 100px;
+    border-top: 1px solid #ccc;
+    margin-top: 30px;
+    padding-top: 20px;
+}
+
+#footerwrap .footerL {
+    float: left;
+    width: 550px;
+}
+
+#footerwrap .footerR {
+    float: right;
+}

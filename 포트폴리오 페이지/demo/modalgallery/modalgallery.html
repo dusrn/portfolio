@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title></title>
+
+
+	<style>
+		* {
+			margin:0;
+			padding:0;
+		}
+
+		a {
+			text-decoration: none;;
+			color:#fff;
+		}
+
+		.header {
+			height:115px;
+			width:980px;
+			margin:0 auto;
+
+		}
+
+		.container {
+			width:980px;
+			margin: 0 auto;
+
+		}
+
+
+	</style>
+	<link rel="stylesheet" href="./gallery.css">
+
+	<script  type="text/javascript" src="./libs/jquery-1.11.0.min.js"></script>
+	<script  type="text/javascript" src="./libs/jquery.easing.1.3.js"></script>
+	<script>
+
+		/*
+		 미션02: 요구사항(문서와 동영상 참고)에 맞게 모달-겔러리를 만들어 주세요.
+
+		 기타:
+		 - 마크업과 스타일 작업은 이미 완성된 상태입니다. 자바스크립트+jQuery를 활용해 요구사항을 구현해주세요.
+		 - 기능 구현참고 : http://htmlstream.com/preview/unify-v1.8/feature_gallery.html
+
+		 */
+		$(document).ready(function(){
+			modalGallery();
+
+
+		})
+
+		function modalGallery(){
+			var imageSourceList = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg"];
+			var imageTitleList = ["이미지1","이미지2","이미지3", "이미지4"];
+
+			// list 배열 사용 안함;; (앨범 이미지 22개인걸로 알고 실수함;;)
+
+			// 여기에 소스를 입력해주세요.
+
+			function initEvent() {
+				var $prev_image = $(".prev-image"),
+						$next_image = $('.next-image'),
+						$modal_gallery = $(".modal-gallery"),
+						$view_panel_img = $(".view-panel > img"),
+						current_index = 0;
+
+				function change_index(temp) {
+					if (temp) {
+						current_index = (current_index + 1) % 22;
+					} else {
+						current_index = (current_index - 1) % 22;
+						if (current_index < 0) {
+							current_index = 21;
+						}
+					}
+				}
+
+				function change_img() {
+					var src_path = "./album/img" + (current_index + 1) + ".jpg";
+					$view_panel_img.attr("src", src_path);
+				}
+
+				function change_name() {
+					var name = "이미지" + (current_index + 1);
+					$(".image-name")[0].innerHTML = name;
+				}
+
+				function change_item(temp) {
+					change_index(temp);
+					change_img();
+					change_name();
+				}
+
+				function next_img() {
+					change_item(true);
+				}
+
+				function prev_img() {
+					change_item(false);
+				}
+
+				$(".container").click(function(){
+					$modal_gallery.addClass("show");
+					current_index = 21;
+					next_img();
+				})
+
+				$(".close-gallery").click(function(){
+					$modal_gallery.removeClass("show");
+				})
+
+				$prev_image.mouseenter(function(){
+					$(this).animate({"opacity":"1"}, 200);
+				})
+
+				$prev_image.mouseleave(function(){
+					$(this).animate({"opacity":"0"}, 200);
+				})
+
+				$prev_image.click(function(){
+					prev_img();
+				})
+
+				$next_image.mouseenter(function(){
+					$(this).animate({"opacity":"1"}, 200);
+				})
+
+				$next_image.mouseleave(function(){
+					$(this).animate({"opacity":"0"}, 200);
+				})
+
+				$next_image.click(function(){
+					next_img();
+				})
+			}
+
+			initEvent();
+		}
+
+
+	</script>
+
+</head>
+
+<body>
+<div class="main-wrap">
+
+	<div class="container">
+		<img src="./images/gallery-bg.jpg">
+	</div>
+
+
+	<div class="modal-gallery">
+
+		<div class="gallery">
+			<div class="view-panel">
+				<img src="" class="view">
+			</div>
+			<div class="image-name">
+				이미지이름
+			</div>
+
+			<a class="close-gallery">
+				<span></span>
+			</a>
+
+
+			<a class="prev-image">
+				<span></span>
+			</a>
+
+			<a class="next-image">
+				<span></span>
+			</a>
+
+		</div>
+
+	</div>
+
+</div>
+</body>
+</html>
+

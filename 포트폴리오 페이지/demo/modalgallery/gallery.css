@@ -1,0 +1,133 @@
+
+
+.modal-gallery {
+	display:none;
+	width:auto;
+	height:auto;
+	background:url(./images/fancybox_overlay.png);
+	z-index:1000;
+	position:fixed;
+	left:0;
+	top:0;
+	bottom:0;
+	right:0;
+
+}
+
+.modal-gallery.show {
+	display:block;
+}
+
+
+.gallery {
+	width:700px;
+	height:500px;
+
+
+	background-color:#00f;
+	top:50%;
+	left:50%;
+	margin-left:-350px;
+	margin-top:-250px;
+	position:absolute;
+	background-color:#fff;
+
+}
+
+.gallery .view-panel {
+	background-color:#eee;
+	margin:10px;
+	width:680px;
+	height:480px;
+}
+
+
+.gallery .view-panel .view {
+	width:100%;
+	height:100%;
+}
+
+
+.gallery .image-name {
+	background-color:#333333;
+	position:absolute;
+	left:50%;
+	height:30px;
+	width:200px;
+	margin-top:10px;
+	margin-left:-100px;
+	text-align: center;
+	line-height: 30px;
+	vertical-align: middle;
+	color:#fff;
+}
+
+.gallery .prev-image {
+	position:absolute;;
+	left:0;
+	top:0;
+	width:40%;
+	height:100%;
+
+	opacity:0;
+	cursor:pointer;
+}
+
+.gallery .prev-image span {
+	position:absolute;;
+	left:10px;
+	top:50%;
+	width:36px;
+	height:34px;
+	margin-top:-18px;
+	background:url("./images/fancybox_sprite.png") 0 -36px;
+}
+
+
+.gallery .next-image {
+	position:absolute;;
+	right:0;
+	top:0;
+	width:40%;
+	height:100%;
+
+	opacity:0;
+
+	cursor:pointer;
+
+}
+
+.gallery .next-image span {
+	position:absolute;;
+	right:10px;
+	top:50%;
+	width:36px;
+	height:34px;
+	margin-top:-18px;
+	background:url("./images/fancybox_sprite.png") 0 -72px;
+}
+
+
+.gallery .close-gallery {
+	position:absolute;;
+	right:0;
+	top:0;
+	width:36px;
+	height:34px;
+	margin-right:-18px;
+	margin-top:-17px;
+	cursor:pointer;
+}
+
+
+.gallery .close-gallery span {
+	position:absolute;
+
+	width:36px;
+	height:34px;
+
+	background:url("./images/fancybox_sprite.png") 0 0;
+}
+
+
+

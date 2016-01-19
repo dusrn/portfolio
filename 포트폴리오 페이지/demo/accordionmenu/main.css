@@ -1,0 +1,244 @@
+/*
+    Document   : main.css
+    Created on : 2015-07-16 01:52 PM
+    Author     : black9820
+    Description:
+    Purpose of the stylesheet follows.
+    To change this template use Tools | Templates.
+*/
+
+root {
+    display: block;
+}
+
+.wrap {
+    padding: 50px 5px 5px 5px;
+    display: block;
+    width: 1023px;
+    height: 659px;
+    line-height: 18px;
+    overflow: hidden;
+    background-color: rgb(147, 197, 255);
+}
+
+.wrap .header {
+    display: block;
+    width: 1011px;
+    height: 25px;
+    padding: 5px;
+    border-top: 1px solid #d8d8d8;
+    border-left: 1px solid #d8d8d8;
+    border-right: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+    position: relative;
+    background-color: rgb(147, 197, 255);
+}
+
+.wrap .header .back {
+    display: block;
+    float: left;
+    width: 25px;
+    height: 25px;
+    margin-right: 3px;
+    z-index: 10;
+}
+
+.wrap .header .back .back_0 {
+    display: block;
+    background: url("./images/back_0.jpg");
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
+
+.wrap .header .back .back_1 {
+    display: block;
+    background: url("./images/back_1.jpg");
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
+
+.wrap .header .back .back_2 {
+    display: block;
+    background: url("./images/back_2.jpg");
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
+
+.wrap .header .front {
+    display: block;
+    float: left;
+    width: 25px;
+    height: 25px;
+    z-index: 10;
+}
+
+.wrap .header .front .front_0 {
+    display: block;
+    background: url("./images/front_0.jpg");
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
+
+.wrap .header .front .front_1 {
+    display: block;
+    background: url("./images/front_1.jpg");
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
+
+.wrap .header .front .front_2 {
+    display: block;
+    background: url("./images/front_2.jpg");
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
+
+.wrap .accordion {
+    display: block;
+    width: 220px;
+    height: 600px;
+    padding: 10px 0;
+    border-left: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+    border-right: 1px solid #d8d8d8;
+    float: left;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.wrap .accordion ul {
+    margin: 0;
+    padding: 0;
+}
+
+.wrap .accordion .node {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    display: block;
+    float: left;
+    padding-right: 2px;
+    z-index: 10;
+}
+
+.wrap .accordion .node .white_arrow {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: url("./images/white_arrow.jpg");
+    background-repeat: no-repeat;
+}
+
+.wrap .accordion .node .blue_arrow {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: url("./images/blue_arrow.jpg");
+    background-repeat: no-repeat;
+}
+
+.wrap .accordion .node .black_triangle {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: url("./images/black_triangle.jpg");
+    background-repeat: no-repeat;
+}
+
+.wrap .accordion .node .blue_triangle {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: url("./images/blue_triangle.jpg");
+    background-repeat: no-repeat;
+}
+
+.wrap .accordion .outer_li {
+    cursor: pointer;
+    display: block;
+    margin-top: 25px;
+    color: #111111;
+    border: 1px solid #ffffff;
+    padding: 3px;
+}
+
+.wrap .accordion .outer_li:hover {
+    border: 1px solid #dde8ff;
+    background: #fcfdff;
+}
+
+.wrap .contents .icon,
+.wrap .accordion .icon {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    display: block;
+    float: left;
+    padding-right: 2px;
+}
+
+.wrap .accordion .item {
+    height: 18px;
+    position: relative;
+    display: block;
+}
+
+.wrap .accordion .inner_li {
+    display: none;
+}
+
+.wrap .contents .inner_li li,
+.wrap .accordion .inner_li li {
+    cursor: pointer;
+    display: block;
+    padding: 3px 20px;
+    color: #111111;
+    border: 1px solid #ffffff;
+    margin: 0;
+}
+
+.wrap .accordion .inner_li li:hover {
+    border: 1px solid #dde8ff;
+    background: #fcfdff;
+}
+
+.wrap .accordion .inner_li .inner_li li {
+    cursor: pointer;
+    display: block;
+    padding: 3px 40px;
+    color: #111111;
+    border: 1px solid #ffffff;
+    margin: 0;
+}
+
+.wrap .accordion .inner_li .inner_li li:hover {
+    border: 1px solid #dde8ff;
+    background: #fcfdff;
+}
+
+.wrap .contents {
+    width: 800px;
+    height: 600px;
+    display: block;
+    border-right: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+    position: relative;
+    padding: 10px 0;
+    float: right;
+    background-color: #ffffff;
+}
+
+.wrap .contents .page {
+    padding: 40px;
+}
+
+.wrap .contents div {
+    display: none;
+}

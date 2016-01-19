@@ -1,0 +1,86 @@
+
+.slider {
+	position:relative;;
+
+	width:978px;
+	height:278px;
+
+
+}
+
+.slider .slider-image-list {
+	float:left;
+	position:relative;
+	width:652px;
+
+}
+.slider .slider-image-list a {
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+
+
+.slider .slider-content-wrap {
+	float:right;
+	position:relative;
+	width:301px;
+	height:258px;
+	background:url(./images/visual_bg2.gif) repeat;
+
+	padding:20px 0 0 25px;
+
+	color:#fff;
+}
+
+
+/* 쎔네일 목록 처리 */
+.slider .slider-content-wrap .slider-contents-list{
+	position:relative;
+	height:120px;
+	margin-top:10px;
+}
+
+.slider .slider-content-wrap .slider-contents-list .content h2 {
+	font-size:19px;
+}
+
+.slider .slider-content-wrap .slider-contents-list .content p {
+	font-size:13px;
+	margin-top:10px;
+	padding-right:20px;
+	line-height: 1.4;
+
+}
+.slider .slider-content-wrap .slider-contents-list .content {
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+
+.slider .slider-content-wrap .slider-thumb-list {
+	padding-top:20px;
+
+}
+
+.slider .slider-content-wrap .slider-thumb-list a {
+
+	float:left;
+	position:relative;
+	margin-right:10px;
+}
+
+
+/* 썸네일 선택 표시 */
+.slider .slider-content-wrap .slider-thumb-list a.select:before {
+	content: "";
+	background:url(./images/visual_act.gif);
+	width:62px;
+	height:67px;
+
+	position:absolute;
+	margin-top:-5px;
+
+}

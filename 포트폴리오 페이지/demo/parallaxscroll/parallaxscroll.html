@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>test</title>
+    <script src="libs/jquery-1.11.3.min.js"></script>
+    <script src="libs/jquery.easing.1.3.js"></script>
+    <!--
+    <script src="libs/tweenmax/TweenMax.js"></script>
+    <script src="libs/tweenmax/TimelineMax.js"></script>
+    <script src="libs/tweenmax/easing/EasePack.js"></script>
+    -->
+
+    <link href="css/main-v2.css" rel="stylesheet">
+    <style>
+
+        * {
+            margin:0;
+            padding:0;
+        }
+
+        a:visited,a:active,a:link,a:hover {
+            text-decoration: none;
+        }
+
+        #info {
+            position: fixed;
+            left:0;
+            top:0;
+            background-color:#eeeeee;
+            width:100%;
+            heihgt:30px;
+            z-index:3000;
+            opacity:0.5;
+        }
+
+
+
+    </style>
+
+    <script>
+        /*
+
+         step #10
+         - 모든 곳에 tweenamx 적용
+
+         step #09
+         - step #08 문제점 해결
+         - tweenmax활용
+         - #beanWrap에 애니메이션  적용
+
+
+         step #08
+         - #fav 영역 활성화/비활성화 처리
+         - 문제점 :
+         - 여러개의 요소가 동시에 움직이는 경우 느려지는 문제
+
+         step #07
+         - sw변수를 활용해 step #06 문제점 해결
+
+         step #06
+         - #beanWrap 위치가 되는 경우 나타는 효과 호출
+         - 문제점
+         - show, hide()가 쉴세 없이 동작.
+
+         step #05
+         - #beanWrap에 사라지는 효과 만들기
+
+         step #04
+         - #beanWrap에 나타나는 효과만 만들기
+
+         step #03
+         - #tabWrap 영역 애니메이션 적용
+
+         step #02
+         - 시작 위치를 위해 start 스타일 적용하기
+
+         step #01
+         - 레이아웃 잡기
+         - 배경 효과 적용하기
+
+         step #00
+         - 적용 전
+         */
+        $(document).ready(function(){
+            Init();
+        })
+
+
+        function showInfo(str){
+            var scrollY = window.pageYOffset;
+            $("#info").html("scrollY="+scrollY+", "+str);
+        }
+
+
+        function Init() {
+            var mybeanWrap_position = $("#mybeanWrap").offset().top - $(window).height(),
+                    favWrap_position = $("#favWrap").offset().top - $(window).height(),
+                    $document = $(document),
+                    lastscrollTop = 0,
+                    second_object = [$(".mybean-icon01"),
+                        $(".mybean-icon02"),
+                        $(".katikati-txt01"),
+                        $(".katikati-txt02"),
+                        $(".btn-mybean")],
+                    third_object = [$(".fav-prod-txt01"),
+                        $(".fav-prod-txt02"),
+                        $(".btn-fav-prod")];
+
+
+            first_animation();
+
+            $(window).scroll(function(e){
+                var temp = $(this).scrollTop();
+                if (temp > lastscrollTop) { // down
+                    if ($document.scrollTop() > mybeanWrap_position + 100) {
+                        second_animation_start();
+                    }
+                    if ($document.scrollTop() > favWrap_position + 100) {
+                        third_animation_start();
+                    }
+                } else { // up
+                    if ($document.scrollTop() < mybeanWrap_position + 300) {
+                        second_animation_end();
+                    }
+                    if ($document.scrollTop() < favWrap_position + 300) {
+                        third_animation_end();
+                    }
+                }
+                lastscrollTop = temp;
+            })
+
+            function first_animation() {
+                $(".autumn-txt1").removeClass("start");
+                $(".autumn-txt2").removeClass("start");
+                $(".autumn-cup1").removeClass("start");
+                $(".autumn-cup2").removeClass("start");
+                $(".autumn-bev-ttl").removeClass("start");
+                $(".btn-see-detail").removeClass("start");
+            }
+
+            function second_animation_start() {
+                for (var i=0; i<second_object.length; i++) {
+                    second_object[i].removeClass("start");
+                }
+            }
+
+            function second_animation_end() {
+                for (var i=0; i<second_object.length; i++) {
+                    second_object[i].addClass("start");
+                }
+            }
+
+            function third_animation_start() {
+                for (var i=0; i<third_object.length; i++) {
+                    third_object[i].removeClass("start");
+                }
+            }
+
+            function third_animation_end() {
+                for (var i=0; i<third_object.length; i++) {
+                    third_object[i].addClass("start");
+                }
+            }
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <div id="info">
+        info
+    </div>
+    <div class="mainWrap">
+        <div id="mainMenu">
+            #main
+        </div>
+    </div>
+    <div id="tabWrap">
+        #tabWrap
+        <div class="wrap-inner">
+            <img class="autumn-txt1 start" src="./images/autumn_txt1.png">
+            <img class="autumn-txt2 start" src="./images/autumn_txt2.png">
+            <div class="btn btn-see-detail start" ><a href="">자세히 보기 </a></div>
+            <img class="autumn-cup1 start" src="./images/autumn_cup1.png">
+            <img class="autumn-cup2 start" src="./images/autumn_cup2.png">
+            <img class="autumn-bev-ttl start" src="./images/autumn_bev_ttl.png">
+
+        </div>
+    </div>
+    <div class="line-notice">
+        <!--.line-notice (공지사항, 스타벅스 프로모션)-->
+    </div>
+    <div class="line-reward-wrap">
+        <!--.line-reward-wrap-->
+    </div>
+    <div id="beanWrap">
+        <!--#beanWrap-->
+        <div class="wrap-inner">
+            <img class="bean-icon01 start" src="./images/bean_icon01.png">
+            <img class="bean-icon02 start" src="./images/bean_icon02.png">
+            <img class="bean-icon03 start" src="./images/bean_icon03.png">
+
+        </div>
+    </div>
+
+    <div id="mybeanWrap">
+        <!--#mybeanWrap-->
+        <div class="wrap-inner">
+            <img class="mybean-icon01 start" src="./images/autumn_anni_bg.png">
+            <img class="mybean-icon02 start" src="./images/autumn_anni_obje.png">
+            <img class="katikati-txt01 start" src="./images/autumn_anni_txt1.png">
+            <img class="katikati-txt02 start" src="./images/autumn_anni_txt2.png">
+
+            <div class="btn btn-mybean start">
+                <a href="">자세히 보기</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="blackReserveWrap">
+        #blackReserveWrap
+    </div>
+
+    <div id="favWrap">
+        #favWrap
+        <div class="wrap-inner">
+            <img class="fav-prod-txt01 start" src="./images/fav_prod_txt01.png">
+            <img class="fav-prod-txt02 start" src="./images/fav_prod_txt02.png">
+            <img class="fav-prod-img01 start" src="./images/fav_prod_img01.png">
+            <div class="btn btn-fav-prod start">
+                <a href="">자세히 보기</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="reserve2Wrap">
+        #reserve2Wrap
+        <div class="wrap-inner">
+            <img class="reserve-img01" src="./images/reserve_medal01.png">
+        </div>
+    </div>
+
+    <div id="storeWrap">
+        #storeWrap
+    </div>
+</body>
+</html>
