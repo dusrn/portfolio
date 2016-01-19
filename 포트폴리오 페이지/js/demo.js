@@ -3,6 +3,8 @@ function demo_func(){
   var demotab_item = document.getElementsByClassName("demotab_item"),
       democontent = document.getElementsByClassName("democontent"),
       opendemo = document.getElementById("opendemo"),
+      video = document.getElementsByTagName("video"),
+      playpause = document.getElementsByClassName("playpause"),
       index = 0;
 
   for (var i=0; i<demotab_item.length; i++) {
@@ -16,6 +18,34 @@ function demo_func(){
       }
       this.className = "demotab_item tab_select";
       democontent[index].className = "democontent content_select";
+    };
+  }
+
+  for (var i=0; i<video.length; i++) {
+    playpause[i].onclick = function(e){
+      var index = 0;
+      for (var i=0; i<video.length; i++) {
+        if (this == playpause[i]) {
+          index = i;
+        }
+      }
+      if (video[index].paused) {
+        video[index].play();
+        playpause[index].className = "playpause pause";
+      } else {
+        video[index].pause();
+        playpause[index].className = "playpause play";
+      }
+    };
+
+    video[i].onended = function(e){
+      var index = 0;
+      for (var i=0; i<video.length; i++) {
+        if (this == video[i]) {
+          index = i;
+        }
+      }
+      playpause[index].className = "playpause play";
     };
   }
 
